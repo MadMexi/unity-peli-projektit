@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
+    
     public float speed;
     private Rigidbody2D rb;
 
@@ -12,6 +12,6 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.linearVelocity = transform.up * speed; 
+        rb.linearVelocity = transform.right * speed;
     }
 }
