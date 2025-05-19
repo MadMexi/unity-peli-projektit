@@ -220,8 +220,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingPoint: {fileID: 3744404803593142653}
-  bulletPrefab: {fileID: 0}
-  gun: {fileID: 0}
+  bulletPrefab: {fileID: 7467284945730313082, guid: 3c904124e90a4f74c96ada6e288b6cb4, type: 3}
+  gun: {fileID: 3258145435471271401}
+  AmmoInClip: 20
+  MaxAmmo: 20
+  ReloadTime: 0.5
 --- !u!1 &6997218444933436960
 GameObject:
   m_ObjectHideFlags: 0

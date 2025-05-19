@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     public int score = 0;
-    public float gameTime = 30f;
+    public float gameTime = 1f;
     public bool isGameActive = false;
+    
 
     private void Awake()
     {
@@ -25,7 +28,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         score = 0;
-        gameTime = 30f;
+        gameTime = 1f;
         isGameActive = true;
         SceneManager.LoadScene("GameScene");
     }
@@ -40,4 +43,13 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+
+
+    private void Update()
+    {
+        gameTime += Time.deltaTime;
+    }
+
+
 }

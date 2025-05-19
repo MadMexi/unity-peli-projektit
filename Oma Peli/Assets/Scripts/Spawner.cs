@@ -1,26 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class SquareSpawner : MonoBehaviour
 {
-    public GameObject squarePrefab;
-    public float spawnInterval = 0.5f;
-    public Vector2 spawnAreaMin;
-    public Vector2 spawnAreaMax;
-    /*
+    public List<Transform> SpawnPositions;
+    public GameObject Enemy;
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnSquare), 1f, spawnInterval);
+        StartCoroutine(SpawnEnemy());
+    }
+    IEnumerator SpawnEnemy()
+    {
+        yield return new WaitForSeconds(1 / (1 + Mathf.Floor(GameManager.Instance.gameTime / 10)));
+        Instantiate(Enemy, SpawnPositions[UnityEngine.Random.Range(0, SpawnPositions.Count)].position, Quaternion.identity);
+        StartCoroutine(SpawnEnemy());
     }
 
-    void SpawnSquare()
-    {
-        if (!GameManager.Instance.isGameActive) return;
-
-        Vector2 randomPos = new Vector2(
-            Random.Range(spawnAreaMin.x, spawnAreaMax.x),
-            Random.Range(spawnAreaMin.y, spawnAreaMax.y)
-        );
-
-        Instantiate(squarePrefab, randomPos, Quaternion.identity);
-    }*/
 }
