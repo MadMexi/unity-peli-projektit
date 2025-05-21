@@ -76,6 +76,7 @@ public class Shoot : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Enemy");
         if (other.gameObject.tag == "Enemy")
         {
             Health -= 10;

@@ -6,7 +6,10 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameManager.Instance.score += 1;
-        Destroy(other.gameObject); //Tuhoa törmätty objekti
+        if (other.gameObject.tag == "Bullet")
+        {
+            Destroy(other.gameObject); //Tuhoa törmätty objekti
+        }
         Destroy(gameObject); //Tuhoaa itsensä
     }
     public float moveSpeed = 3;
