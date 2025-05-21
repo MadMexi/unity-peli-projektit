@@ -1,8 +1,11 @@
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public AudioClip DeathSoundEffect;
+   // private AudioSource audioSource; vaihda pois kommentti
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameManager.Instance.score += 1;
@@ -11,11 +14,13 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject); //Tuhoa törmätty objekti
         }
         Destroy(gameObject); //Tuhoaa itsensä
+
     }
     public float moveSpeed = 3;
     private Transform player;
     private void Start()
     {
+        //audioSource = GetComponent<AudioSource>; vaihda pois kommentti
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Update()
