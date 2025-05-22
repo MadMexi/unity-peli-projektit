@@ -1,26 +1,38 @@
 using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-    public AudioClip DeathSoundEffect;
-   // private AudioSource audioSource; vaihda pois kommentti
+    public AudioSource audioSource;
+    public float moveSpeed = 3;
+    private Transform player;
+    public GameObject EffectOnDestroyPrefab;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameManager.Instance.score += 1;
         if (other.gameObject.tag == "Bullet")
         {
+            //Debug.Log("osuma");
+            audioSource.Play(); // Toista kuolemis ääni
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(other.gameObject); //Tuhoa törmätty objekti
+            if (EffectOnDestroyPrefab)
+            {
+                Instantiate(EffectOnDestroyPrefab, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject,0.2f); //Tuhoaa itsensä
         }
-        Destroy(gameObject); //Tuhoaa itsensä
-
+        
     }
-    public float moveSpeed = 3;
-    private Transform player;
+
     private void Start()
     {
-        //audioSource = GetComponent<AudioSource>; vaihda pois kommentti
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Update()
@@ -31,5 +43,6 @@ public class Enemy : MonoBehaviour
 
         transform.position += dir * moveSpeed * Time.deltaTime;
     }
+      
 
 }
