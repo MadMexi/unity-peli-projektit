@@ -1,13 +1,14 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class Shoot : MonoBehaviour
 {
     public Transform shootingPoint;
     public GameObject bulletPrefab;
-    public Transform gun;
+    public Transform gun1;
     private float shootAngle;
     public int AmmoInClip;
     public int MaxAmmo;
@@ -22,6 +23,7 @@ public class Shoot : MonoBehaviour
         uimanager = FindFirstObjectByType<UI_Manager>();
         uimanager.BulletText.text = "Bullets: " + AmmoInClip + "/" + MaxAmmo;
         uimanager.HealthText.text = "Health: " + Health;
+       
     }
 
     // Update is called once per frame
@@ -51,7 +53,7 @@ public class Shoot : MonoBehaviour
 
     void Shooting()
     {
-        gun.eulerAngles = new Vector3(0, 0, shootAngle);
+        gun1.eulerAngles = new Vector3(0, 0, shootAngle);
         if (ReloadCoroutine == null)
         {
             GameObject go = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.Euler(0, 0, shootAngle));
@@ -76,6 +78,7 @@ public class Shoot : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         //Debug.Log("Enemy");
         if (other.gameObject.tag == "Enemy")
         {

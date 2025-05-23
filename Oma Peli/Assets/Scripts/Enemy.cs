@@ -10,12 +10,21 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 3;
     private Transform player;
     public GameObject EffectOnDestroyPrefab;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        GameManager.Instance.score += 1;
+        if (other.gameObject.tag == "Player")
+        {
+            audioSource.Play();
+            if (EffectOnDestroyPrefab)
+            {
+                Instantiate(EffectOnDestroyPrefab, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject, 0.2f);
+        }
+
         if (other.gameObject.tag == "Bullet")
         {
+            GameManager.Instance.score += 1;
             //Debug.Log("osuma");
             audioSource.Play(); // Toista kuolemis ‰‰ni
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
