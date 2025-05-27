@@ -630,7 +630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 128, y: 110}
+  m_AnchoredPosition: {x: 96, y: 87}
   m_SizeDelta: {x: 483.9625, y: 64.288}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1213439356
@@ -666,7 +666,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Penguin Game
+  m_Text: Pistooli pingviini
 --- !u!222 &1213439357
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -755,7 +755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 17.109802, y: -262}
+  m_AnchoredPosition: {x: 17.109802, y: -511}
   m_SizeDelta: {x: 194.2197, y: 52.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1592955708
@@ -888,7 +888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 17.11, y: -336.9484}
+  m_AnchoredPosition: {x: 17.11, y: -585.94836}
   m_SizeDelta: {x: 194.22, y: 55.0066}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703142418

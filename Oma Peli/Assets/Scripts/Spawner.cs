@@ -13,7 +13,7 @@ public class SquareSpawner : MonoBehaviour
     }
     IEnumerator SpawnEnemy()
     {
-        yield return new WaitForSeconds(1 / (1 + Mathf.Floor(GameManager.Instance.gameTime / 10)));
+        yield return new WaitForSeconds(1.5f / (1 + Mathf.Floor(GameManager.Instance.gameTime / 10)));
         Instantiate(Enemy, SpawnPositions[UnityEngine.Random.Range(0, SpawnPositions.Count)].position, Quaternion.identity);
         StartCoroutine(SpawnEnemy());
     }

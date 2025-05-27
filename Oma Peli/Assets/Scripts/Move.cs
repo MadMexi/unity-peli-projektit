@@ -12,6 +12,6 @@ public class PlayerMovement2 : MonoBehaviour
         float moveY = Input.GetAxis("Vertical");
 
 
-        transform.position += new Vector3(moveX, moveY, 0) * speed * Time.deltaTime;
+        transform.position += new Vector3(moveX, moveY, 0).normalized * speed * Time.deltaTime;
     }
 }

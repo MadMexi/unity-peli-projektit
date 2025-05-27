@@ -16,6 +16,10 @@ public class Shoot : MonoBehaviour
     private Coroutine ReloadCoroutine;
     private UI_Manager uimanager;
     public int Health = 100;
+    public KeyCode MoveUp = KeyCode.UpArrow;
+    public KeyCode MoveDown = KeyCode.DownArrow;
+    public KeyCode MoveRight = KeyCode.RightArrow;
+    public KeyCode MoveLeft = KeyCode.LeftArrow;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,22 +33,22 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(MoveUp))
         {
             shootAngle = 90;
             Shooting();
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(MoveLeft))
         {
             shootAngle = 180;
             Shooting();
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(MoveDown))
         {
             shootAngle = 270;
             Shooting();
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(MoveRight))
         {
             shootAngle = 0;
             Shooting();
